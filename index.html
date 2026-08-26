@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ALTA PILCHA | Textile Design Studio</title>
+    <meta name="description" content="Alta Pilcha explora nuevas formas de hacer indumentaria a partir de materiales orgánicos, reciclados y biodegradables.">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-left">
+            <a href="#" class="brand-logo">ALTA PILCHA</a>
+        </div>
+        <div class="nav-center desktop-only">
+            <a href="#collection" class="nav-link">COLECCIÓN</a>
+            <a href="#materials" class="nav-link">MATERIALES</a>
+            <a href="#process" class="nav-link">PROCESO</a>
+            <a href="#studio" class="nav-link">ESTUDIO</a>
+        </div>
+        <div class="nav-right desktop-only">
+            <a href="#" class="nav-link">BUSCAR</a>
+            <a href="#" class="nav-link">BOLSA</a>
+        </div>
+        <div class="nav-mobile-toggle mobile-only" id="mobile-toggle">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+        </div>
+    </nav>
+
+    <!-- MOBILE MENU -->
+    <div class="mobile-menu" id="mobile-menu">
+        <div class="mobile-nav-links">
+            <a href="#collection" class="mobile-nav-link">COLECCIÓN</a>
+            <a href="#materials" class="mobile-nav-link">MATERIALES</a>
+            <a href="#process" class="mobile-nav-link">PROCESO</a>
+            <a href="#studio" class="mobile-nav-link">ESTUDIO</a>
+        </div>
+        <div class="mobile-nav-footer">
+            <a href="#" class="mobile-nav-link small">BUSCAR</a>
+            <a href="#" class="mobile-nav-link small">BOLSA</a>
+        </div>
+    </div>
+
+    <!-- 7. HERO -->
+    <header class="hero section-reveal">
+        <div class="hero-image-container">
+            <img src="assets/images/hero.png" alt="Alta Pilcha Object 001" class="hero-image" fetchpriority="high">
+        </div>
+        <div class="hero-content">
+            <div class="hero-top-meta">
+                <span class="meta-tag fade-up delay-1">EDICIÓN 01</span>
+                <span class="meta-tag fade-up delay-2">OBJECT 001</span>
+                <span class="meta-tag fade-up delay-3">TEXTILE / 2026</span>
+                <span class="meta-tag fade-up delay-4">BUENOS AIRES</span>
+            </div>
+            <div class="hero-title-container fade-up delay-5">
+                <h1 class="hero-title">VESTIR<br>LO QUE YA EXISTE.</h1>
+            </div>
+            <div class="hero-bottom fade-up delay-6">
+                <p class="hero-subtitle">Indumentaria creada a partir de materiales orgánicos, reciclados y biodegradables.</p>
+                <a href="#collection" class="cta-button">EXPLORAR</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 9. MANIFIESTO -->
+    <section id="studio" class="manifesto section-reveal">
+        <div class="manifesto-content fade-up">
+            <h2 class="manifesto-title">¿Y SI LA PRÓXIMA PRENDA<br>NO EMPEZARA DESDE CERO?</h2>
+            <p class="manifesto-text">En Alta Pilcha exploramos nuevas formas de hacer indumentaria a partir de materiales que ya existen y materiales de origen orgánico.</p>
+            <div class="manifesto-keywords">
+                <h3>MATERIAL.</h3>
+                <h3>DISEÑO.</h3>
+                <h3>NUEVA VIDA.</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. PRODUCT SHOWCASE (CAROUSEL) -->
+    <section id="collection" class="product-showcase section-reveal">
+        <div class="showcase-header fade-up">
+            <div class="showcase-meta">
+                <span class="eyebrow active-object">OBJECT 001</span>
+                <span class="carousel-counter"><span id="current-slide">01</span> / 04</span>
+            </div>
+            <h2 class="showcase-title active-title">REMERA ORIGEN</h2>
+            <p class="showcase-tags active-tags">ORGANIC / RECYCLED / BIODEGRADABLE</p>
+            <p class="showcase-desc active-desc">Una silueta esencial creada a partir de materiales seleccionados para reducir el impacto de su ciclo de vida.</p>
+        </div>
+        
+        <div class="carousel-container fade-up delay-2">
+            <div class="carousel-track" id="carousel-track">
+                <!-- Slide 1 -->
+                <div class="carousel-slide" data-index="1" data-object="OBJECT 001" data-title="REMERA ORIGEN" data-tags="ORGANIC / RECYCLED / BIODEGRADABLE" data-desc="Una silueta esencial creada a partir de materiales seleccionados para reducir el impacto de su ciclo de vida.">
+                    <img src="assets/images/hero.png" alt="Remera Origen" loading="lazy">
+                </div>
+                <!-- Slide 2 -->
+                <div class="carousel-slide" data-index="2" data-object="OBJECT 002" data-title="HOODIE SUR" data-tags="RECYCLED / ORGANIC" data-desc="Formas amplias y textura pesada para una protección natural.">
+                    <img src="assets/images/hoodie.png" alt="Hoodie Sur" loading="lazy">
+                </div>
+                <!-- Slide 3 -->
+                <div class="carousel-slide" data-index="3" data-object="OBJECT 003" data-title="PANTALÓN TIERRA" data-tags="RECYCLED / BIODEGRADABLE" data-desc="Corte arquitectónico con fibras recuperadas de alta densidad.">
+                    <img src="assets/images/pants.png" alt="Pantalón Tierra" loading="lazy">
+                </div>
+                <!-- Slide 4 -->
+                <div class="carousel-slide" data-index="4" data-object="OBJECT 004" data-title="ABRIGO ESTRUCTURA" data-tags="ORGANIC / EXPERIMENTAL" data-desc="Construcción compleja a partir de paños experimentales.">
+                    <img src="assets/images/editorial.png" alt="Abrigo Estructura" loading="lazy">
+                </div>
+            </div>
+            <div class="carousel-controls">
+                <button class="carousel-btn prev" id="carousel-prev" aria-label="Anterior">←</button>
+                <button class="carousel-btn next" id="carousel-next" aria-label="Siguiente">→</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 12. PRODUCT STORY (STICKY) -->
+    <section class="product-story">
+        <div class="sticky-container">
+            <div class="story-visuals">
+                <div class="story-image-layer layer-1 active">
+                    <img src="assets/images/hoodie.png" alt="Prenda Completa" loading="lazy">
+                </div>
+                <div class="story-image-layer layer-2">
+                    <img src="assets/images/pants.png" alt="Textura de Prenda" loading="lazy" style="transform: scale(1.5); object-fit: cover;">
+                </div>
+                <div class="story-image-layer layer-3">
+                    <img src="assets/images/material.png" alt="Macro del tejido" loading="lazy">
+                </div>
+                <div class="story-image-layer layer-4">
+                    <img src="assets/images/hero.png" alt="Alta Pilcha" loading="lazy">
+                </div>
+            </div>
+            <div class="story-texts">
+                <div class="story-text-step step-1 active">
+                    <h2>UNA PRENDA.</h2>
+                </div>
+                <div class="story-text-step step-2">
+                    <h2>UN MATERIAL.</h2>
+                </div>
+                <div class="story-text-step step-3">
+                    <h2>UNA NUEVA VIDA.</h2>
+                </div>
+                <div class="story-text-step step-4">
+                    <h2>ALTA PILCHA.</h2>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 13. MATERIAL LAB -->
+    <section id="materials" class="material-lab section-reveal">
+        <div class="lab-header fade-up">
+            <h2 class="section-title">MATERIAL LAB</h2>
+            <p class="section-subtitle">We study what clothes are made of.</p>
+        </div>
+        <div class="lab-grid fade-up delay-2">
+            <div class="lab-item">
+                <img src="assets/images/material.png" alt="Material de estudio" loading="lazy">
+                <div class="lab-meta">
+                    <span class="meta-tag">ORGANIC FIBER</span>
+                    <span class="meta-tag">TEXTILE STUDY / 001</span>
+                </div>
+            </div>
+            <div class="lab-item small">
+                <div class="lab-meta-only">
+                    <span class="meta-tag">RECYCLED TEXTILE</span>
+                    <span class="meta-tag">BIODEGRADABLE MATERIAL</span>
+                    <span class="meta-tag">MATERIAL RESEARCH</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 14. TRES PILARES -->
+    <section class="three-pillars section-reveal">
+        <div class="pillar fade-up delay-1">
+            <div class="pillar-number">01</div>
+            <h3 class="pillar-title">ORGÁNICO</h3>
+            <p class="pillar-desc">Materiales de origen natural seleccionados con criterios de producción responsable.</p>
+        </div>
+        <div class="pillar fade-up delay-2">
+            <div class="pillar-number">02</div>
+            <h3 class="pillar-title">RECICLADO</h3>
+            <p class="pillar-desc">Materiales recuperados y transformados nuevamente en materia textil.</p>
+        </div>
+        <div class="pillar fade-up delay-3">
+            <div class="pillar-number">03</div>
+            <h3 class="pillar-title">BIODEGRADABLE</h3>
+            <p class="pillar-desc">Materiales pensados para reducir su permanencia como residuo bajo las condiciones adecuadas.</p>
+        </div>
+    </section>
+
+    <!-- 15. DEL MATERIAL A LA PRENDA -->
+    <section id="process" class="process-timeline section-reveal">
+        <div class="process-header fade-up">
+            <h2>DEL MATERIAL<br>A LA PRENDA.</h2>
+        </div>
+        <div class="timeline-container fade-up delay-2">
+            <div class="timeline-track">
+                <div class="timeline-step">
+                    <span class="step-num">01 / MATERIAL</span>
+                    <div class="step-visual">
+                        <img src="assets/images/material.png" alt="Material en bruto">
+                    </div>
+                </div>
+                <div class="timeline-connector"></div>
+                <div class="timeline-step">
+                    <span class="step-num">02 / FIBRA</span>
+                    <div class="step-visual text-only">
+                        <p>Extracción y limpieza de la materia prima.</p>
+                    </div>
+                </div>
+                <div class="timeline-connector"></div>
+                <div class="timeline-step">
+                    <span class="step-num">03 / TEXTIL</span>
+                    <div class="step-visual">
+                        <img src="assets/images/material.png" alt="Textil tramado" style="filter: brightness(0.8);">
+                    </div>
+                </div>
+                <div class="timeline-connector"></div>
+                <div class="timeline-step">
+                    <span class="step-num">04 / DISEÑO</span>
+                    <div class="step-visual text-only">
+                        <p>Patronaje y estudio morfológico.</p>
+                    </div>
+                </div>
+                <div class="timeline-connector"></div>
+                <div class="timeline-step">
+                    <span class="step-num">05 / PRENDA</span>
+                    <div class="step-visual">
+                        <img src="assets/images/hero.png" alt="Prenda terminada">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 16. PRODUCT DETAIL -->
+    <section class="product-detail section-reveal">
+        <div class="detail-image fade-up">
+            <img src="assets/images/hoodie.png" alt="Hoodie Sur">
+        </div>
+        <div class="detail-info fade-up delay-2">
+            <span class="eyebrow">OBJECT 001</span>
+            <h2 class="detail-title">REMERA ORIGEN</h2>
+            <p class="detail-desc">Una silueta esencial diseñada para una nueva generación de materiales.</p>
+            
+            <div class="detail-specs">
+                <div class="spec-block">
+                    <h4>MATERIAL</h4>
+                    <p>Organic cotton<br>Recycled fibers</p>
+                </div>
+                <div class="spec-block">
+                    <h4>CONSTRUCTION</h4>
+                    <p>Textile / 280 GSM</p>
+                </div>
+                <div class="spec-block">
+                    <h4>ORIGIN</h4>
+                    <p>Buenos Aires, Argentina</p>
+                </div>
+                <div class="spec-block">
+                    <h4>PROFILE</h4>
+                    <p>Organic<br>Recycled<br>Biodegradable</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 17. EDITORIAL CAMPAIGN -->
+    <section class="editorial-campaign section-reveal">
+        <div class="editorial-container">
+            <div class="editorial-main-img fade-up">
+                <img src="assets/images/editorial.png" alt="Editorial Campaign Main">
+            </div>
+            <div class="editorial-overlay-img fade-up delay-2">
+                <img src="assets/images/hero.png" alt="Editorial Campaign Overlay">
+            </div>
+            <div class="editorial-meta fade-up delay-3">
+                <span>ALTA PILCHA / 01</span>
+                <span>BUENOS AIRES</span>
+                <span>MATERIAL STUDY</span>
+                <span>2026</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 18. COLECCIÓN -->
+    <section class="collection-grid section-reveal">
+        <div class="collection-header fade-up">
+            <span class="eyebrow">COLLECTION 01</span>
+            <h2>RE:FORM</h2>
+            <p>A study of materials, form and reuse.</p>
+        </div>
+        
+        <div class="grid-items">
+            <!-- Item 1 (Image left, text right) -->
+            <div class="grid-item layout-1 fade-up">
+                <div class="item-img"><img src="assets/images/hero.png" alt="Object 001"></div>
+                <div class="item-info">
+                    <h3>OBJECT 001</h3>
+                    <p>Exploración morfológica.</p>
+                </div>
+            </div>
+            <!-- Item 2 (Image right, text left) -->
+            <div class="grid-item layout-2 fade-up">
+                <div class="item-info">
+                    <h3>OBJECT 002</h3>
+                    <p>Texturas de recuperación.</p>
+                </div>
+                <div class="item-img"><img src="assets/images/hoodie.png" alt="Object 002"></div>
+            </div>
+            <!-- Item 3 (Image left, text right) -->
+            <div class="grid-item layout-1 fade-up">
+                <div class="item-img"><img src="assets/images/pants.png" alt="Object 003"></div>
+                <div class="item-info">
+                    <h3>OBJECT 003</h3>
+                    <p>Volumen y densidad.</p>
+                </div>
+            </div>
+            <!-- Item 4 (Image right, text left) -->
+            <div class="grid-item layout-2 fade-up">
+                <div class="item-info">
+                    <h3>OBJECT 004</h3>
+                    <p>Asimetría constructiva.</p>
+                </div>
+                <div class="item-img"><img src="assets/images/editorial.png" alt="Object 004"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 19. CLOSING STATEMENT -->
+    <section class="closing-statement section-reveal dark-theme">
+        <div class="closing-content fade-up">
+            <h2>LO QUE YA EXISTE<br>PUEDE SER<br>ALGO NUEVO.</h2>
+            <div class="closing-brand">
+                <span>ALTA PILCHA</span>
+                <span>INDUMENTARIA / MATERIAL / FUTURO</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- 20. FOOTER -->
+    <footer class="footer dark-theme">
+        <div class="footer-top">
+            <div class="footer-brand">
+                <h3>ALTA PILCHA</h3>
+                <p>INDUMENTARIA / MATERIAL / FUTURO</p>
+            </div>
+            <div class="footer-links">
+                <a href="#collection">COLECCIÓN</a>
+                <a href="#materials">MATERIALES</a>
+                <a href="#process">PROCESO</a>
+                <a href="#studio">ESTUDIO</a>
+            </div>
+            <div class="footer-social">
+                <a href="#">INSTAGRAM</a>
+                <a href="#">TIKTOK</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>BUENOS AIRES / ARGENTINA</span>
+            <span>&copy; 2026 ALTA PILCHA</span>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

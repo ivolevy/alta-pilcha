@@ -1,0 +1,874 @@
+/* 
+  ALTA PILCHA - TEXTILE DESIGN STUDIO
+  Styles and Design System
+*/
+
+/* 1. VARIABLES & RESET */
+:root {
+    /* Colors */
+    --c-off-white: #F4F2EC;
+    --c-black: #111111;
+    --c-charcoal: #2A2A2A;
+    --c-warm-grey: #8C8A85;
+    --c-sand: #D9D5CB;
+    --c-olive-subtle: #4A4D45;
+
+    /* Typography */
+    --font-primary: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    --font-condensed: 'Oswald', 'Helvetica Neue Condensed', sans-serif;
+
+    /* Transitions */
+    --ease-out-expo: cubic-bezier(0.19, 1, 0.22, 1);
+    --transition-slow: 1.2s var(--ease-out-expo);
+    --transition-med: 0.6s ease;
+    --transition-fast: 0.3s ease;
+    
+    /* Layout */
+    --nav-height: 80px;
+    --padding-side: 5vw;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    background-color: var(--c-off-white);
+    color: var(--c-black);
+}
+
+body {
+    font-family: var(--font-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    line-height: 1.4;
+    overflow-x: hidden;
+    position: relative;
+}
+
+img {
+    max-width: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* 2. TYPOGRAPHY SYSTEM */
+h1, h2, h3, h4 {
+    font-weight: 500;
+    letter-spacing: -0.02em;
+}
+
+h1 {
+    font-size: clamp(3rem, 8vw, 8rem);
+    line-height: 1;
+    text-transform: uppercase;
+}
+
+h2 {
+    font-size: clamp(2rem, 5vw, 5rem);
+    line-height: 1.1;
+    text-transform: uppercase;
+}
+
+h3 {
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+p {
+    font-size: clamp(1rem, 1.2vw, 1.25rem);
+    color: var(--c-charcoal);
+}
+
+.eyebrow, .meta-tag {
+    font-size: 0.65rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+    color: var(--c-warm-grey);
+}
+
+/* 3. ANIMATION UTILS */
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.fade-up.in-view {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+.delay-5 { transition-delay: 0.5s; }
+.delay-6 { transition-delay: 0.6s; }
+
+/* 4. NAVBAR */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: var(--nav-height);
+    padding: 0 var(--padding-side);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 100;
+    transition: background-color var(--transition-fast), backdrop-filter var(--transition-fast);
+}
+
+.navbar.scrolled {
+    background-color: rgba(244, 242, 236, 0.85);
+    backdrop-filter: blur(10px);
+}
+
+.dark-theme .navbar.scrolled {
+    background-color: rgba(17, 17, 17, 0.9);
+    color: var(--c-off-white);
+}
+
+.brand-logo {
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    font-size: 1.1rem;
+}
+
+.nav-center, .nav-right {
+    display: flex;
+    gap: 3vw;
+}
+
+.nav-link {
+    font-size: 0.8rem;
+    font-weight: 500;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0%;
+    height: 1px;
+    background-color: currentColor;
+    transition: width var(--transition-fast);
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+/* MOBILE NAV */
+.mobile-only { display: none; }
+
+.nav-mobile-toggle {
+    width: 30px;
+    height: 20px;
+    position: relative;
+    cursor: pointer;
+    z-index: 101;
+}
+
+.hamburger-line {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background-color: var(--c-black);
+    transition: transform var(--transition-fast), opacity var(--transition-fast);
+}
+
+.hamburger-line:first-child { top: 0; }
+.hamburger-line:last-child { bottom: 0; }
+
+.nav-mobile-toggle.open .hamburger-line:first-child {
+    transform: translateY(9px) rotate(45deg);
+}
+.nav-mobile-toggle.open .hamburger-line:last-child {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+.mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background-color: var(--c-off-white);
+    z-index: 99;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--padding-side);
+    transform: translateY(-100%);
+    transition: transform var(--transition-med);
+}
+
+.mobile-menu.open {
+    transform: translateY(0);
+}
+
+.mobile-nav-links {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 4rem;
+}
+
+.mobile-nav-link {
+    font-size: 2.5rem;
+    font-weight: 500;
+    text-transform: uppercase;
+}
+
+.mobile-nav-link.small {
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+/* 5. HERO SECTION */
+.hero {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--padding-side);
+    padding-top: var(--nav-height);
+    overflow: hidden;
+}
+
+.hero-image-container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+    height: 80%;
+    z-index: 1;
+}
+
+.hero-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    animation: subtleZoom 10s infinite alternate ease-in-out;
+}
+
+@keyframes subtleZoom {
+    0% { transform: scale(1); }
+    100% { transform: scale(1.05); }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.hero-top-meta {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.hero-title-container {
+    text-align: center;
+    mix-blend-mode: difference;
+    color: white; /* Contrast trick for overlap */
+}
+
+.hero-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+.hero-subtitle {
+    max-width: 300px;
+}
+
+.cta-button {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    border-bottom: 1px solid var(--c-black);
+    padding-bottom: 5px;
+    text-transform: uppercase;
+    transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.cta-button:hover {
+    color: var(--c-warm-grey);
+    border-color: var(--c-warm-grey);
+}
+
+/* 6. MANIFIESTO */
+.manifesto {
+    padding: 15vh var(--padding-side);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+}
+
+.manifesto-content {
+    max-width: 1200px;
+    text-align: center;
+}
+
+.manifesto-title {
+    margin-bottom: 3rem;
+}
+
+.manifesto-text {
+    max-width: 600px;
+    margin: 0 auto 5rem;
+    font-size: clamp(1.2rem, 1.5vw, 1.8rem);
+}
+
+.manifesto-keywords {
+    display: flex;
+    justify-content: space-between;
+    gap: 2rem;
+}
+
+/* 7. PRODUCT SHOWCASE (CAROUSEL) */
+.product-showcase {
+    padding: 10vh var(--padding-side);
+    position: relative;
+}
+
+.showcase-header {
+    margin-bottom: 3rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.showcase-meta {
+    grid-column: 1 / -1;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid var(--c-sand);
+    padding-bottom: 1rem;
+}
+
+.showcase-title {
+    font-size: clamp(2.5rem, 6vw, 6rem);
+}
+
+.showcase-tags {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    align-self: end;
+}
+
+.carousel-container {
+    position: relative;
+    width: 100%;
+}
+
+.carousel-track {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none; /* Firefox */
+}
+
+.carousel-track::-webkit-scrollbar {
+    display: none; /* Chrome, Safari */
+}
+
+.carousel-slide {
+    flex: 0 0 85%;
+    width: 85%;
+    scroll-snap-align: center;
+    margin-right: 5vw;
+    position: relative;
+    transition: transform var(--transition-med), opacity var(--transition-med);
+    opacity: 0.5;
+    transform: scale(0.95);
+}
+
+.carousel-slide.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: 70vh;
+    object-fit: cover;
+    background-color: var(--c-sand);
+}
+
+.carousel-controls {
+    display: flex;
+    justify-content: flex-end;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.carousel-btn {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: var(--c-black);
+    transition: color var(--transition-fast);
+}
+
+.carousel-btn:hover {
+    color: var(--c-warm-grey);
+}
+
+/* 8. PRODUCT STORY (STICKY) */
+.product-story {
+    height: 400vh; /* 4 steps */
+    position: relative;
+    background-color: var(--c-off-white);
+}
+
+.sticky-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.story-visuals {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.story-image-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.story-image-layer.active {
+    opacity: 1;
+}
+
+.story-image-layer img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.story-texts {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    color: white;
+    mix-blend-mode: difference;
+}
+
+.story-text-step {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    width: 100%;
+}
+
+.story-text-step h2 {
+    font-size: clamp(3rem, 8vw, 8rem);
+}
+
+.story-text-step.active {
+    opacity: 1;
+}
+
+/* 9. MATERIAL LAB */
+.material-lab {
+    padding: 15vh var(--padding-side);
+}
+
+.lab-header {
+    margin-bottom: 5rem;
+    text-align: center;
+}
+
+.lab-grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 2rem;
+    align-items: stretch;
+}
+
+.lab-item {
+    position: relative;
+    overflow: hidden;
+}
+
+.lab-item img {
+    width: 100%;
+    height: 100%;
+    min-height: 400px;
+    object-fit: cover;
+    transition: transform 1s ease;
+}
+
+.lab-item:hover img {
+    transform: scale(1.05);
+}
+
+.lab-meta {
+    position: absolute;
+    bottom: 2rem;
+    left: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    color: white;
+    mix-blend-mode: difference;
+}
+
+.lab-meta-only {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding: 2rem;
+    background-color: var(--c-sand);
+    height: 100%;
+    justify-content: center;
+}
+
+/* 10. THREE PILLARS */
+.three-pillars {
+    padding: 10vh var(--padding-side);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 4rem;
+}
+
+.pillar {
+    display: flex;
+    flex-direction: column;
+}
+
+.pillar-number {
+    font-size: clamp(4rem, 10vw, 8rem);
+    font-weight: 300;
+    color: var(--c-sand);
+    line-height: 0.8;
+    margin-bottom: 1rem;
+}
+
+.pillar-title {
+    margin-bottom: 1rem;
+}
+
+/* 11. PROCESS TIMELINE */
+.process-timeline {
+    padding: 15vh 0 15vh var(--padding-side);
+    overflow: hidden;
+}
+
+.process-header {
+    margin-bottom: 5rem;
+}
+
+.timeline-container {
+    width: 100%;
+    overflow-x: auto;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+}
+
+.timeline-container::-webkit-scrollbar {
+    display: none;
+}
+
+.timeline-track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    padding-right: var(--padding-side);
+}
+
+.timeline-step {
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.step-num {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+}
+
+.step-visual {
+    width: 100%;
+    height: 400px;
+    background-color: var(--c-sand);
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+}
+
+.step-visual img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.timeline-connector {
+    width: 100px;
+    height: 1px;
+    background-color: var(--c-black);
+    margin: 0 2rem;
+    align-self: flex-end;
+    margin-bottom: 200px; /* Align with visual center approx */
+}
+
+/* 12. PRODUCT DETAIL */
+.product-detail {
+    padding: 15vh var(--padding-side);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5vw;
+    align-items: center;
+}
+
+.detail-specs {
+    margin-top: 4rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    border-top: 1px solid var(--c-sand);
+    padding-top: 2rem;
+}
+
+.spec-block h4 {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    margin-bottom: 0.5rem;
+    color: var(--c-warm-grey);
+}
+
+/* 13. EDITORIAL CAMPAIGN */
+.editorial-campaign {
+    padding: 10vh var(--padding-side);
+}
+
+.editorial-container {
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.editorial-main-img {
+    width: 80%;
+}
+
+.editorial-overlay-img {
+    position: absolute;
+    bottom: -10%;
+    right: 5%;
+    width: 40%;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+}
+
+.editorial-meta {
+    position: absolute;
+    top: 5%;
+    right: 5%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    text-align: right;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+}
+
+/* 14. COLLECTION GRID */
+.collection-grid {
+    padding: 25vh var(--padding-side) 15vh;
+}
+
+.collection-header {
+    text-align: center;
+    margin-bottom: 8rem;
+}
+
+.grid-items {
+    display: flex;
+    flex-direction: column;
+    gap: 15vh;
+}
+
+.grid-item {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5vw;
+    align-items: center;
+}
+
+.item-img {
+    background-color: var(--c-sand);
+}
+
+.item-info {
+    padding: 2rem;
+}
+
+.layout-2 {
+    direction: rtl;
+}
+.layout-2 .item-info {
+    direction: ltr;
+}
+
+/* 15. CLOSING & FOOTER */
+.dark-theme {
+    background-color: var(--c-black);
+    color: var(--c-off-white);
+}
+
+.closing-statement {
+    padding: 20vh var(--padding-side);
+    text-align: center;
+}
+
+.closing-brand {
+    margin-top: 5rem;
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    border-top: 1px solid var(--c-charcoal);
+    padding-top: 2rem;
+}
+
+.footer {
+    padding: 5vh var(--padding-side) 2vh;
+}
+
+.footer-top {
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--c-charcoal);
+    padding-bottom: 4rem;
+    margin-bottom: 2rem;
+}
+
+.footer-links, .footer-social {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--c-warm-grey);
+}
+
+/* 16. RESPONSIVE (MOBILE FIRST ADAPTATIONS) */
+@media (max-width: 1024px) {
+    .desktop-only { display: none; }
+    .mobile-only { display: block; }
+    
+    .product-detail, .lab-grid, .three-pillars {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+    
+    .grid-item {
+        grid-template-columns: 1fr;
+    }
+    
+    .layout-2 { direction: ltr; }
+    
+    .showcase-header {
+        grid-template-columns: 1fr;
+    }
+    
+    .carousel-slide {
+        flex: 0 0 90%;
+        width: 90%;
+    }
+    
+    .footer-top {
+        flex-direction: column;
+        gap: 3rem;
+    }
+    
+    .editorial-main-img {
+        width: 100%;
+    }
+    .editorial-overlay-img {
+        position: relative;
+        width: 80%;
+        margin-top: -20%;
+        margin-left: 20%;
+    }
+    
+    .hero-top-meta {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+}
+
+@media (max-width: 768px) {
+    .manifesto-keywords {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .hero-bottom {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 2rem;
+    }
+    
+    .timeline-step {
+        width: 250px;
+    }
+}
