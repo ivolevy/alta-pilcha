@@ -149,4 +149,30 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
     }
 
+    /* 6. PROCESS HORIZONTAL SCROLL LOGIC */
+    const processSection = document.querySelector('.process-timeline-section');
+    const tTrack = document.getElementById('timeline-track');
+
+    if (processSection && tTrack) {
+        window.addEventListener('scroll', () => {
+            const rect = processSection.getBoundingClientRect();
+            // Check if we are scrolling past the section
+            if (rect.top <= 0 && rect.bottom >= window.innerHeight) {
+                // Calculate progress (0 to 1)
+                const scrollProgress = Math.abs(rect.top) / (rect.height - window.innerHeight);
+                
+                // Calculate how much to translate the track
+                // Track width minus viewport width plus some padding
+                const maxTranslate = tTrack.scrollWidth - window.innerWidth + (window.innerWidth * 0.1);
+                
+                tTrack.style.transform = `translateX(-${scrollProgress * maxTranslate}px)`;
+            } else if (rect.top > 0) {
+                tTrack.style.transform = `translateX(0px)`;
+            } else if (rect.bottom < window.innerHeight) {
+                const maxTranslate = tTrack.scrollWidth - window.innerWidth + (window.innerWidth * 0.1);
+                tTrack.style.transform = `translateX(-${maxTranslate}px)`;
+            }
+        }, { passive: true });
+    }
+
 });

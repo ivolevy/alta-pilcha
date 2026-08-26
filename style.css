@@ -352,6 +352,21 @@ p {
     gap: 2rem;
 }
 
+.studio-about {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    margin-top: 6rem;
+    text-align: left;
+    border-top: 1px solid var(--c-sand);
+    padding-top: 4rem;
+}
+
+.about-column .eyebrow {
+    display: block;
+    margin-bottom: 1.5rem;
+}
+
 /* 7. PRODUCT SHOWCASE (CAROUSEL) */
 .product-showcase {
     padding: 10vh var(--padding-side);
@@ -574,6 +589,10 @@ p {
     justify-content: center;
 }
 
+.lab-meta-only .meta-tag {
+    color: var(--c-off-white);
+}
+
 /* 10. THREE PILLARS */
 .three-pillars {
     padding: 10vh var(--padding-side);
@@ -599,10 +618,22 @@ p {
     margin-bottom: 1rem;
 }
 
-/* 11. PROCESS TIMELINE */
-.process-timeline {
-    padding: 15vh 0 15vh var(--padding-side);
+/* 11. PROCESS TIMELINE (HORIZONTAL SCROLL) */
+.process-timeline-section {
+    height: 400vh;
+    position: relative;
+    background-color: var(--c-off-white);
+}
+
+.process-sticky-container {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     overflow: hidden;
+    padding: 0 var(--padding-side);
 }
 
 .process-header {
@@ -611,20 +642,13 @@ p {
 
 .timeline-container {
     width: 100%;
-    overflow-x: auto;
-    scrollbar-width: none;
-    -webkit-overflow-scrolling: touch;
-}
-
-.timeline-container::-webkit-scrollbar {
-    display: none;
 }
 
 .timeline-track {
     display: flex;
     align-items: center;
     width: max-content;
-    padding-right: var(--padding-side);
+    will-change: transform;
 }
 
 .timeline-step {
@@ -657,6 +681,10 @@ p {
 
 .step-visual.text-only {
     background-color: var(--c-dry-green);
+    color: var(--c-off-white);
+}
+
+.step-visual.text-only p {
     color: var(--c-off-white);
 }
 
@@ -866,6 +894,11 @@ p {
     .manifesto-keywords {
         flex-direction: column;
         gap: 1rem;
+    }
+    
+    .studio-about {
+        grid-template-columns: 1fr;
+        gap: 3rem;
     }
     
     .hero-bottom {
