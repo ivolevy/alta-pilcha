@@ -11,7 +11,7 @@
     --c-charcoal: #2A2A2A;
     --c-warm-grey: #8C8A85;
     --c-sand: #D9D5CB;
-    --c-olive-subtle: #4A4D45;
+    --c-dry-green: #8F9980;
 
     /* Typography */
     --font-primary: 'Inter', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -318,8 +318,8 @@ p {
 }
 
 .cta-button:hover {
-    color: var(--c-warm-grey);
-    border-color: var(--c-warm-grey);
+    color: var(--c-dry-green);
+    border-color: var(--c-dry-green);
 }
 
 /* 6. MANIFIESTO */
@@ -443,7 +443,7 @@ p {
 }
 
 .carousel-btn:hover {
-    color: var(--c-warm-grey);
+    color: var(--c-dry-green);
 }
 
 /* 8. PRODUCT STORY (STICKY) */
@@ -568,7 +568,8 @@ p {
     flex-direction: column;
     gap: 2rem;
     padding: 2rem;
-    background-color: var(--c-sand);
+    background-color: var(--c-dry-green);
+    color: var(--c-off-white);
     height: 100%;
     justify-content: center;
 }
@@ -589,7 +590,7 @@ p {
 .pillar-number {
     font-size: clamp(4rem, 10vw, 8rem);
     font-weight: 300;
-    color: var(--c-sand);
+    color: var(--c-dry-green);
     line-height: 0.8;
     margin-bottom: 1rem;
 }
@@ -652,6 +653,11 @@ p {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+.step-visual.text-only {
+    background-color: var(--c-dry-green);
+    color: var(--c-off-white);
 }
 
 .timeline-connector {
