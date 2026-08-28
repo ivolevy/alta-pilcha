@@ -175,4 +175,47 @@ document.addEventListener('DOMContentLoaded', () => {
         }, { passive: true });
     }
 
+    /* 7. E-COMMERCE INTERACTIONS */
+    const colorSwatches = document.querySelectorAll('.color-swatch');
+    const selectedColorName = document.getElementById('selected-color-name');
+    const detailProductImg = document.getElementById('detail-product-img');
+
+    if (colorSwatches.length > 0 && selectedColorName && detailProductImg) {
+        // Set initial filter based on active swatch
+        const activeSwatch = document.querySelector('.color-swatch.active');
+        if (activeSwatch && activeSwatch.dataset.filter) {
+            detailProductImg.style.filter = activeSwatch.dataset.filter;
+        }
+
+        colorSwatches.forEach(swatch => {
+            swatch.addEventListener('click', () => {
+                // Remove active from all
+                colorSwatches.forEach(s => s.classList.remove('active'));
+                
+                // Add active to clicked
+                swatch.classList.add('active');
+                
+                // Update name
+                selectedColorName.textContent = swatch.dataset.name;
+                
+                // Update image filter
+                if (swatch.dataset.filter) {
+                    detailProductImg.style.filter = swatch.dataset.filter;
+                } else {
+                    detailProductImg.style.filter = 'none';
+                }
+            });
+        });
+    }
+
+    const sizeBtns = document.querySelectorAll('.size-btn');
+    if (sizeBtns.length > 0) {
+        sizeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                sizeBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+            });
+        });
+    }
+
 });

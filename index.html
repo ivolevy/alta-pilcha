@@ -257,7 +257,7 @@
     <!-- 16. PRODUCT DETAIL -->
     <section class="product-detail section-reveal">
         <div class="detail-image fade-up">
-            <img src="assets/images/hoodie.png" alt="Hoodie Sur">
+            <img id="detail-product-img" src="assets/images/hoodie.png" alt="Hoodie Sur" style="transition: filter 0.5s ease;">
         </div>
         <div class="detail-info fade-up delay-2">
             <span class="eyebrow">OBJECT 001</span>
@@ -269,11 +269,11 @@
                 
                 <div class="product-options">
                     <div class="option-group">
-                        <span class="option-label">COLOR: <span class="selected-color-name">NEGRO</span></span>
+                        <span class="option-label">COLOR: <span id="selected-color-name">NEGRO</span></span>
                         <div class="color-swatches">
-                            <button class="color-swatch active" style="background-color: #111111;" aria-label="Negro"></button>
-                            <button class="color-swatch" style="background-color: #F4F2EC; border: 1px solid #D9D5CB;" aria-label="Crudo"></button>
-                            <button class="color-swatch" style="background-color: #8F9980;" aria-label="Verde Seco"></button>
+                            <button class="color-swatch active" data-name="NEGRO" data-filter="brightness(0.2) sepia(0.2) grayscale(0.8)" style="background-color: #111111;" aria-label="Negro"></button>
+                            <button class="color-swatch" data-name="CRUDO" data-filter="sepia(0.3) saturate(0.8) brightness(1.1) hue-rotate(-10deg)" style="background-color: #F4F2EC; border: 1px solid #D9D5CB;" aria-label="Crudo"></button>
+                            <button class="color-swatch" data-name="VERDE SECO" data-filter="sepia(0.5) hue-rotate(50deg) saturate(1.2) brightness(0.85)" style="background-color: #8F9980;" aria-label="Verde Seco"></button>
                         </div>
                     </div>
                     
